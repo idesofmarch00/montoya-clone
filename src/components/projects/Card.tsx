@@ -52,9 +52,13 @@ const Card = ({
               />
             </motion.div>
             <div className="absolute bottom-0 w-full px-20 pb-14 text-white flex items-end justify-between">
-              <span className="text-sm">{year}</span>
-              <span className="text-6xl">{title}</span>
-              <span className="text-sm">{type}</span>
+              <button className="text-sm bg-white bg-opacity-20 rounded-full px-4 py-1 text-white">
+                {year}
+              </button>
+              <h1 className="text-9xl">{title}</h1>
+              <span className="text-sm bg-white bg-opacity-20 rounded-full px-4 py-1 text-white">
+                {type}
+              </span>
             </div>
           </div>
         </div>
