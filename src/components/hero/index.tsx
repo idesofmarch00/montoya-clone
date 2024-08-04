@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
-import Magnetic from "../magnetic";
+import { motion } from "framer-motion"; // Import motion from framer-motion for animations
+import Magnetic from "../magnetic"; // Import Magnetic component for interactive elements
+
+// Define the letters to be animated
 const letters = "MONTOYA".split("");
 
 const Hero = () => {
@@ -9,12 +11,12 @@ const Hero = () => {
         {letters.map((letter, index) => (
           <motion.span
             key={index}
-            className="inline-block relative overflow-hidden" // Added styles
-            initial={{ scaleY: 1 }}
-            whileHover={{ scaleY: 1.5 }} // Adjust stretch factor
-            transition={{ type: "spring", stiffness: 300 }}
+            className="inline-block relative overflow-hidden" // Added styles for inline-block and overflow-hidden
+            initial={{ scaleY: 1 }} // Initial scale for the animation
+            whileHover={{ scaleY: 1.5 }} // Scale on hover for a subtle stretch effect
+            transition={{ type: "spring", stiffness: 300 }} // Spring animation with stiffness for a smooth transition
           >
-            <span className=" text-white">{letter}</span>
+            <span className="text-white">{letter}</span>
           </motion.span>
         ))}
       </motion.h1>
@@ -49,7 +51,10 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           <Magnetic>
-            <div className="ml-4 w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform">
+            <div
+              className="ml-4 w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
+              onClick={() => window.scrollTo({ top: 1000, behavior: "smooth" })}
+            >
               <i className="fa-solid fa-angle-down"></i>
             </div>
           </Magnetic>

@@ -1,10 +1,11 @@
 "use client";
 
+// Importing necessary dependencies
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Magnetic from "../magnetic";
 
+// Footer component definition
 const Footer = forwardRef(function Footer(props, ref) {
   return (
     <div className="bottom-0 left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10 px-16 pb-8">
@@ -13,6 +14,13 @@ const Footer = forwardRef(function Footer(props, ref) {
           <div
             ref={ref as React.Ref<HTMLDivElement>}
             className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              })
+            }
           >
             <i className="fa-solid fa-angle-up"></i>
           </div>
@@ -88,9 +96,7 @@ const Footer = forwardRef(function Footer(props, ref) {
         >
           {["In", "Fb", "Be", "Tw", "Db"].map((link, index) => (
             <Magnetic key={index}>
-              <a href="#" className="mr-4">
-                {link}
-              </a>
+              <p className="mr-4">{link}</p>
             </Magnetic>
           ))}
         </motion.div>
