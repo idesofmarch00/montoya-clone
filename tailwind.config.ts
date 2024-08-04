@@ -11,7 +11,7 @@ const config = {
   prefix: "",
   theme: {
     padding: {
-      "7.5": "25px",
+      "7.5": "20px",
     },
     width: {
       "7.5": "25px",

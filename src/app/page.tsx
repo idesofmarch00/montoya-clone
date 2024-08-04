@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Header from "../components/header";
 import StickyCursor from "../components/stickyCursor";
-import Hero from "../components/Hero";
+import Hero from "../components/hero";
 
 export default function Home() {
   const stickyElement = useRef(null);

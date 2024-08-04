@@ -117,7 +117,7 @@ export default function StickyCursor({ stickyElement }: any) {
           height: cursorSize,
         }}
         className={`fixed border h-20 w-20 rounded-full pointer-events-none ${
-          isHovered ? "border-orange-100" : "border-gray-300"
+          isHovered ? "border-orange-300" : "border-gray-300"
         }`}
         ref={cursor}
       ></motion.div>
