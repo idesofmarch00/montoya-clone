@@ -5,12 +5,12 @@ const wordTwo = "STUDIO".split("");
 
 const Studio = () => {
   return (
-    <div className="flex -pt-40 flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
-      <p className="mb-6 text-lg  max-w-2xl text-wrap text-gray-400">
+    <div className="flex pt-56 flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
+      <p className="-mb-20 text-lg  max-w-2xl text-wrap text-gray-400">
         EXPLORING OUR WORLD OF VISUAL AND INTERACTIVE DESIGN
       </p>
       <div className="flex items-center space-x-4">
-        <motion.h1 className="text-8xl font-bold">
+        <motion.h1 className="text-[21rem] font-medium">
           {wordOne.map((letter, index) => (
             <motion.span
               key={index}
@@ -23,7 +23,7 @@ const Studio = () => {
             </motion.span>
           ))}
         </motion.h1>
-        <motion.h1 className="text-8xl font-bold">
+        <motion.h1 className="text-[21rem] font-medium">
           {wordTwo.map((letter, index) => (
             <motion.span
               key={index}

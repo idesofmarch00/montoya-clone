@@ -7,7 +7,7 @@ const letters = "MONTOYA".split("");
 const Hero = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
-      <motion.h1 className="text-8xl font-bold">
+      <motion.h1 className="text-[21rem] font-medium -mt-10">
         {letters.map((letter, index) => (
           <motion.span
             key={index}
@@ -20,17 +20,17 @@ const Hero = () => {
           </motion.span>
         ))}
       </motion.h1>
-      <p className="mt-4 text-lg  max-w-2xl text-wrap text-white opacity-40">
+      <p className="-mt-40 text-lg max-w-2xl text-wrap text-white opacity-40">
         WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING DESIGN, AND
         DEVELOPMENT. OUR WORK IS ALWAYS AT THE INTERSECTION OF DESIGN AND
         TECHNOLOGY.
       </p>
       <div className="absolute bottom-6 flex items-center justify-between w-full px-10 pt-8">
-        <div className="left-10 flex items-center text-sm font-thin">
+        <div className="left-10 flex items-center text-sm font-medium">
           <motion.div
             initial="initial"
             whileHover="hovered"
-            className="h-fit relative overflow-hidden font-black cursor-pointer"
+            className="h-fit relative overflow-hidden cursor-pointer"
           >
             <motion.div
               variants={{
@@ -60,7 +60,7 @@ const Hero = () => {
           </Magnetic>
         </div>
 
-        <div className="text-white text-sm flex font-bold items-center justify-end">
+        <div className="text-white text-sm flex font-medium items-center justify-end">
           <span className="mr-6">Featured Projects</span>
         </div>
       </div>

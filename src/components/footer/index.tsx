@@ -9,7 +9,7 @@ import Magnetic from "../magnetic";
 const Footer = forwardRef(function Footer(props, ref) {
   return (
     <div className="bottom-0 left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10 px-16 pb-8">
-      <div className="left-14 flex items-center text-sm font-thin">
+      <div className="left-14 flex items-center text-sm font-medium">
         <Magnetic>
           <div
             ref={ref as React.Ref<HTMLDivElement>}
@@ -50,7 +50,7 @@ const Footer = forwardRef(function Footer(props, ref) {
         </motion.div>
       </div>
 
-      <div className="text-center text-sm font-bold">
+      <div className="text-center text-sm font-semibold">
         {new Date().getFullYear()} &copy;
         <motion.span
           initial="initial"
@@ -68,7 +68,7 @@ const Footer = forwardRef(function Footer(props, ref) {
       <motion.div
         initial="initial"
         whileHover="hovered"
-        className="flex flex-col items-center text-sm font-bold"
+        className="flex flex-col items-center text-sm font-semibold"
       >
         <motion.div
           variants={{
