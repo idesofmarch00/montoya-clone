@@ -1,19 +1,15 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+"use client";
+import { useRef } from "react";
+import Header from "../components/header";
+import StickyCursor from "../components/stickyCursor";
 
 export default function Home() {
+  const stickyElement = useRef(null);
+
   return (
-    <main className="bg-black text-white min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
+    <main className="bg-white h-screen">
+      <Header ref={stickyElement} />
+      <StickyCursor stickyElement={stickyElement} />
     </main>
   );
 }
