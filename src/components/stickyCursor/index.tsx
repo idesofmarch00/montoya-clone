@@ -37,7 +37,7 @@ export default function StickyCursor({ stickyElement }: any) {
   };
 
   const manageMouseMove = useCallback(
-    (e) => {
+    (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { left, top, height, width } =
         stickyElement.current.getBoundingClientRect();
@@ -116,7 +116,9 @@ export default function StickyCursor({ stickyElement }: any) {
           width: cursorSize,
           height: cursorSize,
         }}
-        className="fixed border h-20 w-20 border-gray-300 bg-black rounded-full pointer-events-none"
+        className={`fixed border h-20 w-20 rounded-full pointer-events-none ${
+          isHovered ? "border-orange-100" : "border-gray-300"
+        }`}
         ref={cursor}
       ></motion.div>
     </div>
