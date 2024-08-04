@@ -16,10 +16,10 @@ const Header = forwardRef<HTMLDivElement, any>(function index(props, ref) {
         }
       `}</style>
       <Magnetic>
-        <div className="relative flex flex-col gap-2 p-8 pointer-events-none">
-          MENU <div
+        <div className="burger relative flex flex-col gap-2 p-8 pointer-events-none">
+          <div
             ref={ref as React.Ref<HTMLDivElement>}
-            className="absolute left-0 top-0 w-full h-full pointer-events-all hover:transform hover:scale-300"
+            className="absolute left-0 top-0 w-40 h-40 pointer-events-all hover:transform"
           ></div>
         </div>
       </Magnetic>

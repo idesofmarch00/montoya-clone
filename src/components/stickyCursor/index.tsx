@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import {
   motion,
   useMotionValue,
@@ -12,7 +12,7 @@ import {
 export default function StickyCursor({ stickyElement }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const cursor = useRef(null);
-  const cursorSize = isHovered ? 80 : 60;
+  const cursorSize = isHovered ? 60 : 40;
 
   const mouse = {
     x: useMotionValue(0),
@@ -36,37 +36,43 @@ export default function StickyCursor({ stickyElement }: any) {
     animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
   };
 
-  const manageMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { left, top, height, width } =
-      stickyElement.current.getBoundingClientRect();
+  const manageMouseMove = useCallback(
+    (e) => {
+      const { clientX, clientY } = e;
+      const { left, top, height, width } =
+        stickyElement.current.getBoundingClientRect();
 
-    //center position of the stickyElement
-    const center = { x: left + width / 2, y: top + height / 2 };
+      //center position of the stickyElement
+      const center = { x: left + width / 2, y: top + height / 2 };
 
-    if (isHovered) {
-      //distance between the mouse pointer and the center of the custom cursor and
-      const distance = { x: clientX - center.x, y: clientY - center.y };
+      if (isHovered) {
+        //distance between the mouse pointer and the center of the custom cursor and
+        const distance = { x: clientX - center.x, y: clientY - center.y };
 
-      //rotate
-      rotate(distance);
+        //rotate
+        rotate(distance);
 
-      //stretch based on the distance
-      const absDistance = Math.max(Math.abs(distance.x), Math.abs(distance.y));
-      const newScaleX = transform(absDistance, [0, height / 2], [1, 1.3]);
-      const newScaleY = transform(absDistance, [0, width / 2], [1, 0.8]);
-      scale.x.set(newScaleX);
-      scale.y.set(newScaleY);
+        //stretch based on the distance
+        const absDistance = Math.max(
+          Math.abs(distance.x),
+          Math.abs(distance.y)
+        );
+        const newScaleX = transform(absDistance, [0, height / 2], [1, 1.3]);
+        const newScaleY = transform(absDistance, [0, width / 2], [1, 0.8]);
+        scale.x.set(newScaleX);
+        scale.y.set(newScaleY);
 
-      //move mouse to center of stickyElement + slightly move it towards the mouse pointer
-      mouse.x.set(center.x - cursorSize / 2 + distance.x * 0.1);
-      mouse.y.set(center.y - cursorSize / 2 + distance.y * 0.1);
-    } else {
-      //move custom cursor to center of stickyElement
-      mouse.x.set(clientX - cursorSize / 2);
-      mouse.y.set(clientY - cursorSize / 2);
-    }
-  };
+        //move mouse to center of stickyElement + slightly move it towards the mouse pointer
+        mouse.x.set(center.x - cursorSize / 2 + distance.x * 0.1);
+        mouse.y.set(center.y - cursorSize / 2 + distance.y * 0.1);
+      } else {
+        //move custom cursor to center of stickyElement
+        mouse.x.set(clientX - cursorSize / 2);
+        mouse.y.set(clientY - cursorSize / 2);
+      }
+    },
+    [isHovered, stickyElement, cursorSize, mouse.x, mouse.y, scale.x, scale.y]
+  ); // Added missing dependencies
 
   const manageMouseOver = () => {
     setIsHovered(true);
@@ -110,7 +116,7 @@ export default function StickyCursor({ stickyElement }: any) {
           width: cursorSize,
           height: cursorSize,
         }}
-        className="fixed border-4 h-20 w-20 border-white bg-black rounded-full pointer-events-none"
+        className="fixed border h-20 w-20 border-gray-300 bg-black rounded-full pointer-events-none"
         ref={cursor}
       ></motion.div>
     </div>

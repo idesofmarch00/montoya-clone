@@ -67,3 +67,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .mix-blend-difference {
+    mix-blend-mode: difference;
+  }
+}
