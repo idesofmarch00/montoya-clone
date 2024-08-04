@@ -34,6 +34,14 @@ const Skills = () => {
     offset: ["start start", "end end"],
   });
 
+  // Make the element fully visible from -1 to 0.5
+  const opacity = useTransform(
+    scrollYProgress,
+    [-1, 0.5],
+    [0, 1] // Fully visible from -1 to 0.5
+  );
+
+  // Ensure smooth scrolling to the end when 80% is reached
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
       if (latest > 0.8 && container.current) {
@@ -50,12 +58,12 @@ const Skills = () => {
   return (
     <div ref={container} className="flex flex-col items-center my-40">
       <motion.p
-        className="text-xs font-medium sticky top-0"
-        initial={{ opacity: 1 }}
+        className="text-sm font-medium sticky top-0 -mt-40"
+        style={{ opacity }} // Always visible
       >
         OUR SKILLS COVER
       </motion.p>
-      <ul className="text-7xl flex flex-col items-center justify-center h-screen space-y-6">
+      <ul className="text-7xl flex flex-col items-center justify-center h-screen space-y-6 mt-44">
         {[
           "WEB DESIGN",
           "MOBILE APP DEVELOPMENT",
