@@ -5,6 +5,9 @@ import StickyCursor from "../components/stickyCursor";
 import Hero from "../components/hero";
 import Projects from "@/components/projects";
 import Middle from "@/components/middle";
+import Skills from "@/components/skills";
+import Footer from "../components/footer";
+import Studio from "@/components/studio";
 
 export default function Home() {
   const stickyElement = useRef(null);
@@ -15,6 +18,9 @@ export default function Home() {
       <Hero />
       <Projects />
       <Middle />
+      <Skills />
+      <Studio />
+      <Footer ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
     </main>
   );
