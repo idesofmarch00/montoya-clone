@@ -5,10 +5,10 @@ import Magnetic from "../magnetic";
 const Middle = () => {
   return (
     <div className="flex flex-col justify-center items-center pb-20">
-      <p className="text-lg font-mono max-w-lg text-wrap text-white opacity-40 pt-10 text-center">
+      <p className="text-lg  max-w-lg text-wrap text-white opacity-40 pt-10 text-center">
         CRAFTING WEBSITES WHERE THE ELEGANCE
       </p>
-      <p className="text-lg font-mono max-w-2xl text-wrap text-white opacity-40 pb-8 text-center">
+      <p className="text-lg  max-w-2xl text-wrap text-white opacity-40 pb-8 text-center">
         OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS.
       </p>
       <Magnetic>

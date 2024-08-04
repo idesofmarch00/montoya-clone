@@ -20,7 +20,7 @@ const Hero = () => {
           </motion.span>
         ))}
       </motion.h1>
-      <p className="mt-4 text-lg font-mono max-w-2xl text-wrap text-white opacity-40">
+      <p className="mt-4 text-lg  max-w-2xl text-wrap text-white opacity-40">
         WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING DESIGN, AND
         DEVELOPMENT. OUR WORK IS ALWAYS AT THE INTERSECTION OF DESIGN AND
         TECHNOLOGY.
