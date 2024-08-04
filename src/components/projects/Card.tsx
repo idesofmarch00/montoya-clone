@@ -34,10 +34,10 @@ const Card = ({
           scale,
           top: 0,
         }}
-        className="flex flex-col relative -top-1/4 h-[650px] w-[1350px] rounded-[25px] p-[50px] transform-origin-top"
+        className="flex flex-col relative -top-1/4 h-[750px] w-[1450px] rounded-[25px] p-[50px] transform-origin-top"
       >
         <div className="flex h-full gap-[50px]">
-          <div className="relative w-[1350px] h-[650px] rounded-[25px] overflow-hidden">
+          <div className="relative w-[1450px] h-[660px] rounded-[25px] overflow-hidden">
             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
               <Image
                 fill
