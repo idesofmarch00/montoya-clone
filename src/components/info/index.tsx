@@ -22,7 +22,7 @@ const infoData = [
 
 const Info = () => {
   return (
-    <div className="flex justify-between items-center px-20 pt-40">
+    <div className="flex justify-between items-center px-20">
       {infoData.map((item, index) => (
         <div key={index} className="p-4 rounded-lg shadow-md bg-black m-4">
           <div className="flex flex-col items-center justify-center space-y-2">

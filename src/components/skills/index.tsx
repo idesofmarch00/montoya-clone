@@ -1,49 +1,71 @@
 "use client";
-import { useRef, useEffect } from "react";
-import { useScroll, motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { useScroll, motion, useTransform } from "framer-motion";
+
+const Word = ({ children }: { children: React.ReactNode }) => {
+  const element = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ["start end", "start start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0.5, 1], [0.4, 1]);
+  const color = useTransform(
+    scrollYProgress,
+    [0.5, 1],
+    ["rgba(255, 255, 255, 0.1)", "white"]
+  );
+
+  return (
+    <motion.li ref={element} style={{ opacity, color }} className="font-bold">
+      {children}
+    </motion.li>
+  );
+};
 
 const Skills = () => {
-  const container = useRef<HTMLDivElement | null>(null); // Specify the type for the ref
+  const container = useRef<HTMLDivElement>(null); // Specify the type here
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
   useEffect(() => {
-    if (scrollYProgress.get() > 0.95) {
-      // Use get() method instead of current
-      if (container.current) {
-        // Check if container.current is not null
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      if (latest > 0.95 && container.current) {
         window.scrollTo({
-          top: container.current.offsetTop + 200, // Adjust the offset as needed
+          top: container.current!.offsetTop + 200, // Use non-null assertion
           behavior: "smooth",
         });
       }
-    }
+    });
+
+    return () => unsubscribe();
   }, [scrollYProgress]);
 
   return (
-    <div ref={container} className="flex flex-col items-center pt-40">
+    <div ref={container} className="flex flex-col items-center">
       <motion.p
         className="text-xs font-bold sticky top-10"
-        style={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
         OUR SKILLS COVER
       </motion.p>
-      <div className="text-9xl flex flex-col items-center justify-center h-screen space-y-6">
-        <ul>
-          <li className="font-bold">Skill 1</li>
-          <li className="font-bold">Skill 2</li>
-          <li className="font-bold">Skill 3</li>
-          <li className="font-bold">Skill 4</li>
-          <li className="font-bold">Skill 5</li>
-          <li className="font-bold">Skill 6</li>
-          <li className="font-bold">Skill 7</li>
-          <li className="font-bold">Skill 8</li>
-        </ul>
-      </div>
+      <ul className="text-7xl flex flex-col items-center justify-center h-screen space-y-6">
+        {[
+          "WEB DESIGN",
+          "MOBILE APP DEVELOPMENT",
+          "UI/UX DESIGN",
+          "SEO OPTIMIZATION",
+          "SOCIAL MEDIA MANAGEMENT",
+          "DATA ANALYTICS",
+          "CONTENT CREATION",
+        ].map((skill, index) => (
+          <Word key={index}>{skill}</Word>
+        ))}
+      </ul>
     </div>
   );
 };
