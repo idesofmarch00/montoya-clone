@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+
 import Header from "../components/header";
 import StickyCursor from "../components/stickyCursor";
 import Hero from "../components/hero";
@@ -22,7 +23,7 @@ export default function Home() {
       <Skills />
       <Info />
       <Studio />
-      <Footer ref={stickyElement} />
+      <Footer />
       <StickyCursor stickyElement={stickyElement} />
     </main>
   );

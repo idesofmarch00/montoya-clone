@@ -17,7 +17,7 @@ const Word = ({ children }: { children: React.ReactNode }) => {
   const color = useTransform(
     scrollYProgress,
     [0.5, 1],
-    ["rgba(255, 255, 255, 0.2)", "white"]
+    ["#FFFFFF20", "#FFFFFF"]
   );
 
   return (
