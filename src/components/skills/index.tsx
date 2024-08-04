@@ -17,7 +17,11 @@ const Word = ({ children }: { children: React.ReactNode }) => {
   );
 
   return (
-    <motion.li ref={element} style={{ opacity, color }} className="font-bold">
+    <motion.li
+      ref={element}
+      style={{ opacity, color }}
+      className="font-medium text-9xl"
+    >
       {children}
     </motion.li>
   );
@@ -29,9 +33,6 @@ const Skills = () => {
     target: container,
     offset: ["start start", "end end"],
   });
-
-  const top10Reached = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const eightyPercentScrolled = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
@@ -47,11 +48,10 @@ const Skills = () => {
   }, [scrollYProgress]);
 
   return (
-    <div ref={container} className="flex flex-col items-center">
+    <div ref={container} className="flex flex-col items-center my-40">
       <motion.p
-        className="text-xs font-bold sticky top-10"
-        initial={{ opacity: 0 }}
-        style={{ opacity: top10Reached }}
+        className="text-xs font-medium sticky top-0"
+        initial={{ opacity: 1 }}
       >
         OUR SKILLS COVER
       </motion.p>
