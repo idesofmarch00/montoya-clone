@@ -1,19 +1,25 @@
 "use client";
 import Image from "next/image";
-import { useTransform, motion, useScroll } from "framer-motion";
+import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
+import { ProjectImage } from "./data";
 
 const Card = ({
   i,
   title,
-  description,
-  src,
-  link,
-  color,
+  year,
+  type,
   progress,
   range,
   targetScale,
-}: any) => {
+  src,
+}: ProjectImage & {
+  i: number;
+  progress: MotionValue<number>;
+  range: number[];
+  targetScale: number;
+  src: string;
+}) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -30,7 +36,6 @@ const Card = ({
     >
       <motion.div
         style={{
-          backgroundColor: color,
           scale,
           top: 0,
         }}
@@ -46,6 +51,11 @@ const Card = ({
                 className="object-cover"
               />
             </motion.div>
+            <div className="absolute bottom-0 w-full px-20 pb-14 text-white flex items-end justify-between">
+              <span className="text-sm">{year}</span>
+              <span className="text-6xl">{title}</span>
+              <span className="text-sm">{type}</span>
+            </div>
           </div>
         </div>
       </motion.div>
