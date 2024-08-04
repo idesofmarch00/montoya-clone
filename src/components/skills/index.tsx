@@ -13,7 +13,7 @@ const Word = ({ children }: { children: React.ReactNode }) => {
   const color = useTransform(
     scrollYProgress,
     [0.5, 1],
-    ["rgba(255, 255, 255, 0.1)", "white"]
+    ["rgba(255, 255, 255, 0.2)", "white"]
   );
 
   return (
@@ -30,11 +30,14 @@ const Skills = () => {
     offset: ["start start", "end end"],
   });
 
+  const top10Reached = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const eightyPercentScrolled = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
+
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
-      if (latest > 0.95 && container.current) {
+      if (latest > 0.8 && container.current) {
         window.scrollTo({
-          top: container.current!.offsetTop + 200, // Use non-null assertion
+          top: container.current!.offsetTop + container.current!.clientHeight,
           behavior: "smooth",
         });
       }
@@ -48,8 +51,7 @@ const Skills = () => {
       <motion.p
         className="text-xs font-bold sticky top-10"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+        style={{ opacity: top10Reached }}
       >
         OUR SKILLS COVER
       </motion.p>
