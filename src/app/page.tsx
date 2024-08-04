@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import Header from "../components/header";
 import StickyCursor from "../components/stickyCursor";
+import Hero from "../components/Hero";
 
 export default function Home() {
   const stickyElement = useRef(null);
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <main className="bg-black h-screen">
       <Header ref={stickyElement} />
+      <Hero />
       <StickyCursor stickyElement={stickyElement} />
     </main>
   );
