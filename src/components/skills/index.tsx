@@ -32,16 +32,16 @@ const Skills = () => {
       >
         OUR SKILLS COVER
       </motion.p>
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="text-9xl flex flex-col items-center justify-center h-screen space-y-6">
         <ul>
-          <li className="text-8xl font-bold">Skill 1</li>
-          <li className="text-8xl font-bold">Skill 2</li>
-          <li className="text-8xl font-bold">Skill 3</li>
-          <li className="text-8xl font-bold">Skill 4</li>
-          <li className="text-8xl font-bold">Skill 5</li>
-          <li className="text-8xl font-bold">Skill 6</li>
-          <li className="text-8xl font-bold">Skill 7</li>
-          <li className="text-8xl font-bold">Skill 8</li>
+          <li className="font-bold">Skill 1</li>
+          <li className="font-bold">Skill 2</li>
+          <li className="font-bold">Skill 3</li>
+          <li className="font-bold">Skill 4</li>
+          <li className="font-bold">Skill 5</li>
+          <li className="font-bold">Skill 6</li>
+          <li className="font-bold">Skill 7</li>
+          <li className="font-bold">Skill 8</li>
         </ul>
       </div>
     </div>
