@@ -78,6 +78,7 @@ const Footer = forwardRef(function Footer(props, ref) {
             className="fa-solid fa-share-nodes"
           />
         </motion.div>
+
         <motion.div
           variants={{
             initial: { opacity: 0, height: 0 },
@@ -85,21 +86,13 @@ const Footer = forwardRef(function Footer(props, ref) {
           }}
           className="flex mt-2"
         >
-          <a href="#" className="mr-4">
-            In
-          </a>
-          <a href="#" className="mr-4">
-            Fb
-          </a>
-          <a href="#" className="mr-4">
-            Be
-          </a>
-          <a href="#" className="mr-4">
-            Tw
-          </a>
-          <a href="#" className="mr-4">
-            Db
-          </a>
+          {["In", "Fb", "Be", "Tw", "Db"].map((link, index) => (
+            <Magnetic key={index}>
+              <a href="#" className="mr-4">
+                {link}
+              </a>
+            </Magnetic>
+          ))}
         </motion.div>
       </motion.div>
     </div>
