@@ -10,20 +10,6 @@ const config = {
   ],
   prefix: "",
   theme: {
-    padding: {
-      "7.5": "20px",
-    },
-    width: {
-      "7.5": "25px",
-    },
-    scale: {
-      "120": "1.2",
-      "130": "1.3",
-      "160": "1.6",
-      "175": "1.75",
-      "200": "2",
-      "300": "3",
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -32,6 +18,20 @@ const config = {
       },
     },
     extend: {
+      padding: {
+        "7.5": "20px",
+      },
+      width: {
+        "7.5": "25px",
+      },
+      scale: {
+        "120": "1.2",
+        "130": "1.3",
+        "160": "1.6",
+        "175": "1.75",
+        "200": "2",
+        "300": "3",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
