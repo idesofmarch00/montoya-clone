@@ -43,13 +43,65 @@ const Footer = forwardRef(function Footer(props, ref) {
       </div>
 
       <div className="text-center text-sm font-bold">
-        {new Date().getFullYear()} &copy; ClaPat. All rights reserved.
+        {new Date().getFullYear()} &copy;
+        <motion.span
+          initial="initial"
+          whileHover="hovered"
+          variants={{
+            initial: { textDecoration: "none" },
+            hovered: { textDecoration: "underline" },
+          }}
+        >
+          ClaPat
+        </motion.span>
+        . All rights reserved.
       </div>
 
-      <div className="flex items-center  text-sm font-bold">
-        <span className="mr-6">Follow Us</span>
-        <i className="fa-solid fa-share-nodes"></i>
-      </div>
+      <motion.div
+        initial="initial"
+        whileHover="hovered"
+        className="flex flex-col items-center text-sm font-bold"
+      >
+        <motion.div
+          variants={{
+            initial: { translateY: 0 },
+            hovered: { translateX: 50, translateY: -30 },
+          }}
+          className="flex items-center justify-end"
+        >
+          <span className="mr-6">Follow Us</span>
+          <motion.i
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            className="fa-solid fa-share-nodes"
+          />
+        </motion.div>
+        <motion.div
+          variants={{
+            initial: { opacity: 0, height: 0 },
+            hovered: { opacity: 1, height: "auto", translateY: -20 },
+          }}
+          className="flex mt-2"
+        >
+          <a href="#" className="mr-4">
+            In
+          </a>
+          <a href="#" className="mr-4">
+            Fb
+          </a>
+          <a href="#" className="mr-4">
+            Be
+          </a>
+          <a href="#" className="mr-4">
+            Tw
+          </a>
+          <a href="#" className="mr-4">
+            Db
+          </a>
+        </motion.div>
+      </motion.div>
     </div>
   );
 });
