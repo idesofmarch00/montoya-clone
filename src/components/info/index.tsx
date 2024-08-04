@@ -4,19 +4,19 @@ import Magnetic from "../magnetic";
 
 const infoData = [
   {
-    icon: "email",
-    info: "info@example.com",
-    type: "email",
+    icon: "fa fa-paper-plane fa-2x fa-2x",
+    info: "office@montoya.com",
+    type: "Email",
   },
   {
-    icon: "address",
-    info: "123 Street, City, State, Zip",
-    type: "address",
+    icon: "fa fa-map-marker fa-2x fa-2x",
+    info: "35 M Street, New York, USA",
+    type: "Address",
   },
   {
-    icon: "phone",
-    info: "123-456-7890",
-    type: "phone",
+    icon: "fa fa-phone fa-2x fa-2x",
+    info: "0040 (7763) 574-8910",
+    type: "Phone",
   },
 ];
 
@@ -24,13 +24,12 @@ const Info = () => {
   return (
     <div className="flex justify-between items-center px-20 pt-40">
       {infoData.map((item, index) => (
-        <div
-          key={index}
-          className="p-4 rounded-lg shadow-md bg-black m-4 flex flex-col items-center justify-center"
-        >
-          <span className={`icon ${item.icon} mb-4`}></span>
-          <p className="text-lg font-semibold text-gray-400">{item.info}</p>
-          <p className="text-sm text-gray-400">{item.type}</p>
+        <div key={index} className="p-4 rounded-lg shadow-md bg-black m-4">
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <i className={`${item.icon}`}></i>
+            <p className="text-xl font-semibold text-white">{item.info}</p>
+            <p className=" text-gray-400">{item.type}</p>
+          </div>
         </div>
       ))}
     </div>

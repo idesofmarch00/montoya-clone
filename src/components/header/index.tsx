@@ -1,18 +1,25 @@
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 import Magnetic from "../magnetic";
 
 const Header = forwardRef(function Header(props, ref) {
   return (
     <div className="fixed left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10">
-      <motion.div className="left-14 top-10 absolute">Logo</motion.div>
+      <motion.div className="left-10 top-6 absolute">
+        <Image
+          src="http://clapat-themes.com/wordpress/montoya/wp-content/themes/montoya/images/logo-white.png"
+          alt="Logo"
+          width={60}
+          height={60}
+        />
+      </motion.div>
 
-      <div className="right-14 top-6 absolute flex items-center gap-4 text-sm font-thin">
+      <div className="right-10 top-6 absolute flex items-center gap-4 text-sm font-thin">
         <motion.div
           initial="initial"
           whileHover="hovered"
-          className="h-fit relative overflow-hidden font-black uppercase cursor-pointer"
+          className="h-fit relative overflow-hidden font-black cursor-pointer"
         >
           <motion.div
             variants={{

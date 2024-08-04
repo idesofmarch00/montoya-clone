@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-const wordOne = "OUR".split(" ");
-const wordTwo = "STUDIO".split(" ");
+const wordOne = "OUR".split("");
+const wordTwo = "STUDIO".split("");
 
 const Studio = () => {
   return (
