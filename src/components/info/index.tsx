@@ -28,7 +28,7 @@ const Info = () => {
           <div className="flex flex-col items-center justify-center space-y-2">
             <i className={`${item.icon}`}></i>
             <p className="text-xl font-semibold text-white">{item.info}</p>
-            <p className=" text-gray-400">{item.type}</p>
+            <p className=" text-white opacity-40">{item.type}</p>
           </div>
         </div>
       ))}

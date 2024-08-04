@@ -4,19 +4,19 @@ import Magnetic from "../magnetic";
 
 const Middle = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <p className="text-lg font-mono max-w-lg text-wrap text-gray-400 pt-10 text-center">
+    <div className="flex flex-col justify-center items-center pb-20">
+      <p className="text-lg font-mono max-w-lg text-wrap text-white opacity-40 pt-10 text-center">
         CRAFTING WEBSITES WHERE THE ELEGANCE
       </p>
-      <p className="text-lg font-mono max-w-2xl text-wrap text-gray-400 pb-10 text-center">
+      <p className="text-lg font-mono max-w-2xl text-wrap text-white opacity-40 pb-8 text-center">
         OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS.
       </p>
       <Magnetic>
-        <div className="border-2 border-white rounded-2xl min-w-40 h-10 px-3 pt-2">
+        <div className="border-2 border-white rounded-3xl w-[10.5rem] h-12 flex items-center justify-center">
           <motion.div
             initial="initial"
             whileHover="hovered"
-            className="h-fit relative overflow-hidden font-black uppercase cursor-pointer"
+            className="h-fit relative overflow-hidden font-black cursor-pointer"
           >
             <motion.div
               variants={{
