@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
-import { ProjectImage } from "./data";
+import { ProjectImage } from "../../data/imageData";
 
 const Card = ({
   i,

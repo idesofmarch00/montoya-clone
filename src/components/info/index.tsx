@@ -1,7 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
-import Magnetic from "../magnetic";
 
+// Define the data for the info section
 const infoData = [
   {
     icon: "fa fa-paper-plane fa-2x fa-2x",
@@ -20,6 +19,7 @@ const infoData = [
   },
 ];
 
+// Component to render the info section
 const Info = () => {
   return (
     <div className="flex justify-between items-center px-20">
