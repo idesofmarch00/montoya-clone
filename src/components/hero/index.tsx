@@ -7,17 +7,25 @@ const letters = "MONTOYA".split("");
 const Hero = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
-      <motion.h1 className="text-[21rem] font-medium -mt-10">
+      <motion.h1 className="flex text-[20rem] font-medium -mt-10">
         {letters.map((letter, index) => (
-          <motion.span
-            key={index}
-            className="inline-block relative overflow-hidden" // Added styles for inline-block and overflow-hidden
-            initial={{ scaleY: 1 }} // Initial scale for the animation
-            whileHover={{ scaleY: 1.5 }} // Scale on hover for a subtle stretch effect
-            transition={{ type: "spring", stiffness: 300 }} // Spring animation with stiffness for a smooth transition
-          >
-            <span className="text-white">{letter}</span>
-          </motion.span>
+          <Magnetic key={index}>
+            <motion.span
+              className="inline-block relative overflow-hidden" // Added styles for inline-block and overflow-hidden
+              initial={{ y: 0 }} // Initial position for the animation
+              whileHover={{ y: -20 }} // Move upwards on hover to create a stretch effect
+              transition={{ type: "spring", stiffness: 50 }} // Spring animation with stiffness for a smooth transition
+            >
+              <motion.span
+                className="block"
+                initial={{ scaleY: 1 }} // Initial scale for the animation
+                whileHover={{ scaleY: 1.2 }} // Stretch on hover
+                transition={{ type: "spring", stiffness: 50 }} // Spring animation with stiffness for a smooth transition
+              >
+                {letter}
+              </motion.span>
+            </motion.span>
+          </Magnetic>
         ))}
       </motion.h1>
       <p className="-mt-40 text-lg max-w-2xl text-wrap text-white opacity-40">
