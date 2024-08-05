@@ -121,7 +121,13 @@ export default function StickyCursor({ stickyElement }: any) {
           : isHovered
           ? "border-orange-300 border"
           : "border-gray-300 border"
-      } ${hoverText.length > 1 ? "bg-opacity-10" : "bg-gray-500 bg-opacity-60 text-lg font-bold"}`}
+      } ${
+        hoverText.length > 1
+          ? "bg-opacity-10"
+          : hoverText.length == 1
+          ? "bg-gray-500 bg-opacity-60 text-lg font-bold"
+          : ""
+      }`}
       ref={cursor}
     >
       {isCardHovered && (
