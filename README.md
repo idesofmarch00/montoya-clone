@@ -6,6 +6,10 @@ This is a clone of the Montoya landing page, built using [Next.js](https://nextj
 
 You can view the live demo of the project [here](https://montoya-clone.vercel.app/).
 
+## Video Demo
+
+You can view the video demo of the project [here](https://montoya-clone.vercel.app/).
+
 ## Getting Started
 
 To run the Next.js app locally, follow these steps:

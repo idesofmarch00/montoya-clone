@@ -1,13 +1,33 @@
-import { forwardRef } from "react";
+import { forwardRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Magnetic from "../magnetic";
 import Logo from "../../../public/assets/logo-white.png";
 
 const Header = forwardRef(function Header(props, ref) {
+  const handleLogoMouseEnter = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent("logoHover", {
+        detail: { isHovered: true },
+      })
+    );
+  }, []);
+
+  const handleLogoMouseLeave = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent("logoHover", {
+        detail: { isHovered: false },
+      })
+    );
+  }, []);
+
   return (
     <div className="fixed left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10">
-      <motion.div className="left-10 top-6 absolute">
+      <motion.div
+        className="left-10 top-6 absolute"
+        onMouseEnter={handleLogoMouseEnter}
+        onMouseLeave={handleLogoMouseLeave}
+      >
         <Image src={Logo} alt="Logo" width={60} height={60} />
       </motion.div>
 
