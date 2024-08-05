@@ -8,7 +8,7 @@ You can view the live demo of the project [here](https://montoya-clone.vercel.ap
 
 ## Video Demo
 
-You can view the video demo of the project [here](https://montoya-clone.vercel.app/).
+You can view the video demo of the project [here](https://drive.google.com/file/d/19E0_AR6hrDoG1CQh7j4VbgkwoPFKhFkp/view?usp=drive_link).
 
 ## Getting Started
 
