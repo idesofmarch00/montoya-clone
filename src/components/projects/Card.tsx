@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { ProjectImage } from "../../data/imageData";
 
 const Card = ({
@@ -29,10 +29,28 @@ const Card = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
+  const handleMouseEnter = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent("cardHover", {
+        detail: { isHovered: true, text: title },
+      })
+    );
+  }, [title]);
+
+  const handleMouseLeave = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent("cardHover", {
+        detail: { isHovered: false, text: "" },
+      })
+    );
+  }, []);
+
   return (
     <div
       ref={container}
       className="h-screen flex items-center justify-center sticky top-0"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <motion.div
         style={{
