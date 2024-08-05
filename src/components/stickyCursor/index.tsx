@@ -115,16 +115,20 @@ export default function StickyCursor({ stickyElement }: any) {
         width: cursorSize,
         height: cursorSize,
       }}
-      className={`fixed rounded-full pointer-events-none flex items-center justify-center ${
+      className={`fixed rounded-full pointer-events-none flex items-center justify-center cursor-pointer ${
         isCardHovered
-          ? "bg-white bg-opacity-10 text-white font-medium"
+          ? "bg-white text-white font-medium"
           : isHovered
           ? "border-orange-300 border"
           : "border-gray-300 border"
-      }`}
+      } ${hoverText.length > 1 ? "bg-opacity-10" : "bg-gray-500 bg-opacity-60 text-lg font-bold"}`}
       ref={cursor}
     >
-      {isCardHovered && <span className="text-sm">[ OPEN ]</span>}
+      {isCardHovered && (
+        <span className="text-sm">
+          {hoverText.length > 1 ? `[ OPEN ]` : "[ About Us ]"}
+        </span>
+      )}
     </motion.div>
   );
 }

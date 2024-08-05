@@ -1,9 +1,26 @@
 import { motion } from "framer-motion";
+import { useCallback } from "react";
 
 const wordOne = "OUR".split("");
 const wordTwo = "STUDIO".split("");
 
 const Studio = () => {
+  const handleMouseEnter = useCallback((letter: string) => {
+    window.dispatchEvent(
+      new CustomEvent("cardHover", {
+        detail: { isHovered: true, text: letter },
+      })
+    );
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent("cardHover", {
+        detail: { isHovered: false, text: "" },
+      })
+    );
+  }, []);
+
   return (
     <div className="flex pt-20 flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
       <p className="text-lg max-w-2xl text-wrap text-gray-400">
@@ -19,12 +36,14 @@ const Studio = () => {
               whileHover={{ scaleY: 1.1 }}
               transition={{ type: "spring", stiffness: 100, damping: 5 }}
               style={{
-                transformOrigin: "top center", // Scale from the top
+                transformOrigin: "top center",
                 display: "inline-block",
                 position: "relative",
                 overflow: "hidden",
-                lineHeight: 1, // Adjust line height to match scaled text
+                lineHeight: 1,
               }}
+              onMouseEnter={() => handleMouseEnter(letter)}
+              onMouseLeave={handleMouseLeave}
             >
               <span className="text-white">{letter}</span>
             </motion.span>
@@ -40,12 +59,14 @@ const Studio = () => {
               whileHover={{ scaleY: 1.1 }}
               transition={{ type: "spring", stiffness: 100, damping: 5 }}
               style={{
-                transformOrigin: "top center", // Scale from the top
+                transformOrigin: "top center",
                 display: "inline-block",
                 position: "relative",
                 overflow: "hidden",
-                lineHeight: 1, // Adjust line height to match scaled text
+                lineHeight: 1,
               }}
+              onMouseEnter={() => handleMouseEnter(letter)}
+              onMouseLeave={handleMouseLeave}
             >
               <span className="text-white">{letter}</span>
             </motion.span>
