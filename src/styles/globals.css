@@ -1,0 +1,34 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --accent-color: #ff3366;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
+  font-family: var(--font-six-caps), sans-serif;
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+/* Add any other global styles here */
