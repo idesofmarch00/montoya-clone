@@ -44,25 +44,21 @@ To run the Next.js app locally, follow these steps:
 4. **Open your browser**:
    Navigate to [http://localhost:3000](http://localhost:3000) to see the application in action.
 
-## Technologies Used
+## Technologies Used and the though process behind their use
 
 ### Next.js
-
 Next.js is a powerful React framework that enables server-side rendering and static site generation. It enhances performance and SEO, making it ideal for building production-level applications. In this project, I utilized Next.js for routing, API routes, and server-side rendering to ensure fast load times and improved user experience.
 
 ### React.js
-
 React.js is a JavaScript library for building user interfaces. It allows for the creation of reusable components, which promotes maintainability and scalability. In this project, I structured the application using functional components and hooks, ensuring a clean and efficient codebase.
 
 ### Framer Motion
-
 Framer Motion is a popular library for animations in React applications. It provides a simple API for creating complex animations and transitions. I used Framer Motion to enhance the user experience by adding smooth animations to various elements, making the interface more engaging.
 
 ### Tailwind CSS
-
 Tailwind CSS is a utility-first CSS framework that allows for rapid UI development. It promotes a consistent design system and reduces the need for custom CSS. In this project, I used Tailwind CSS to style components, ensuring responsiveness and a modern aesthetic.
 
-## Best Practices
+## Best Practices used
 
 1. **Component Segregation**: The project is structured with a clear separation of client components, server components, and assets. This modular approach enhances maintainability and allows for easier updates in the future.
 
@@ -72,9 +68,12 @@ Tailwind CSS is a utility-first CSS framework that allows for rapid UI developme
 
 4. **Code Quality**: The codebase adheres to best practices in terms of readability and organization. I used TypeScript for type safety, which helps catch errors during development and improves the overall quality of the code.
 
-## Conclusion
+5.Custom fonts were implemented using Next.js font optimization features
 
-This project demonstrates my ability to create a modern web application using industry-standard technologies and best practices. I am excited about the opportunity to contribute to Simply Jet and bring my skills to your team.
+
+## Conclusion
+This approach aims to create a performant, visually appealing, and maintainable web application using modern web development tools and practices.
+
 
 If you have any questions or need further clarifications, feel free to reach out.
 
