@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring, animate } from "framer-motion";
 export default function StickyCursor({ stickyElement }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [hoverText, setHoverText] = useState("");
   const cursor = useRef(null);
   const cursorSize = isCardHovered ? 100 : isHovered ? 60 : 40;
@@ -30,6 +31,24 @@ export default function StickyCursor({ stickyElement }: any) {
     const angle = Math.atan2(distance.y, distance.x);
     animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
   };
+
+  useEffect(() => {
+    const handleCardHover = (e: CustomEvent) => {
+      setIsCardHovered(e.detail.isHovered);
+      setHoverText(e.detail.text || "");
+    };
+
+    const handleLogoHover = (e: CustomEvent) => {
+      setIsLogoHovered(e.detail.isHovered);
+    };
+
+    window.addEventListener("cardHover" as any, handleCardHover);
+    window.addEventListener("logoHover" as any, handleLogoHover);
+    return () => {
+      window.removeEventListener("cardHover" as any, handleCardHover);
+      window.removeEventListener("logoHover" as any, handleLogoHover);
+    };
+  }, []);
 
   const manageMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -110,6 +129,7 @@ export default function StickyCursor({ stickyElement }: any) {
         top: smoothMouse.y,
         scaleX: scale.x,
         scaleY: scale.y,
+        opacity: isLogoHovered ? 0 : 1,
       }}
       animate={{
         width: cursorSize,
