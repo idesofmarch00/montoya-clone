@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #0c0c0c;
   color: white;
   font-family: var(--font-poppins), sans-serif;
 }
@@ -20,7 +20,11 @@ h5,
 h6,
 ul,
 li {
-  font-family: var(--font-six-caps), sans-serif;
+  font-family: var(--font-six-caps);
+  font-weight: 500; /* This won't actually change the weight, but we'll adjust the appearance */
+  -webkit-text-stroke: 0.5px; /* This creates a stroke effect, making text appear bolder */
+  font-stretch: expanded;
+  text-shadow: 0 0 1px currentColor; /* This adds a slight shadow, enhancing the bold effect */
 }
 
 .bg-accent {

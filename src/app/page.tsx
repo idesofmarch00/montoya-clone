@@ -15,7 +15,7 @@ export default function Home() {
   const stickyElement = useRef(null);
 
   return (
-    <main className="bg-black h-screen">
+    <main className="h-screen">
       <Header ref={stickyElement} />
       <Hero />
       <Projects />

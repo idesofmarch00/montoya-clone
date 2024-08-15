@@ -6,8 +6,8 @@ const letters = "MONTOYA".split("");
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-black text-white text-center z-0">
-      <motion.h1 className="flex text-[20rem] font-medium -mt-10">
+    <div className="flex flex-col items-center justify-center h-screen text-white text-center z-0">
+      <motion.h1 className="flex text-[19rem] font-medium -mt-10">
         {letters.map((letter, index) => (
           <Magnetic key={index}>
             <motion.span
