@@ -1,5 +1,6 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import SplashScreen from "../components/splashScreen";
 
 import Header from "../components/header";
 import StickyCursor from "../components/stickyCursor";
@@ -12,19 +13,38 @@ import Studio from "@/components/studio";
 import Info from "@/components/info";
 
 export default function Home() {
-  const stickyElement = useRef(null);
+  const hamburgerElement = useRef(null);
+  const backTopElement = useRef(null);
+  const scrollBelowElement = useRef(null);
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleFinishLoading = () => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 500);
+  };
 
   return (
-    <main className="bg-black h-screen">
-      <Header ref={stickyElement} />
-      <Hero />
-      <Projects />
-      <Middle />
-      <Skills />
-      <Info />
-      <Studio />
-      <Footer />
-      <StickyCursor stickyElement={stickyElement} />
+    <main className="h-auto min-h-screen overflow-x-clip">
+      {showSplash ? (
+        <SplashScreen onFinish={handleFinishLoading} />
+      ) : (
+        <>
+          <Header ref={hamburgerElement} />
+          <Hero ref={scrollBelowElement} />
+          <Projects />
+          <Middle />
+          <Skills />
+          <Info />
+          <Studio />
+          <Footer ref={backTopElement} />
+          <StickyCursor
+            hamburgerMenu={hamburgerElement}
+            backTopButton={backTopElement}
+            scrollBelowButton={scrollBelowElement}
+          />
+        </>
+      )}
     </main>
   );
 }
