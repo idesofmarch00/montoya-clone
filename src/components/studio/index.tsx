@@ -41,7 +41,13 @@ const Studio = () => {
   );
 
   return (
-    <div className="flex pt-20 flex-col items-center justify-center h-screen text-white text-center z-0 px-6">
+    <motion.div
+      className="flex pt-20 flex-col items-center justify-center h-screen text-white text-center z-0 px-6 "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ amount: "all" }}
+      transition={{ duration: 1 }}
+    >
       <p className="text-lg max-w-2xl text-wrap opacity-40">
         EXPLORING OUR WORLD OF VISUAL AND INTERACTIVE DESIGN
       </p>
@@ -118,7 +124,7 @@ const Studio = () => {
           ))}
         </motion.h1>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
