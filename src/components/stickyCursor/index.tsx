@@ -7,6 +7,8 @@ export default function StickyCursor({ stickyElement }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const [isMagneticHovered, setIsMagneticHovered] = useState(false);
+  const [isMenuHovered, setIsMenuHovered] = useState(false);
   const [hoverText, setHoverText] = useState("");
   const cursor = useRef(null);
   const cursorSize = isCardHovered ? 100 : isHovered ? 60 : 40;
@@ -49,6 +51,14 @@ export default function StickyCursor({ stickyElement }: any) {
       window.removeEventListener("logoHover" as any, handleLogoHover);
     };
   }, []);
+
+  const handleMenuHover = (e: CustomEvent) => {
+    setIsMenuHovered(e.detail.isHovered);
+  };
+
+  const handleMagneticHover = (e: CustomEvent) => {
+    setIsMagneticHovered(e.detail.isHovered);
+  };
 
   const manageMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -103,7 +113,13 @@ export default function StickyCursor({ stickyElement }: any) {
       stickyElement.current.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
     };
-  }, [isHovered, manageMouseMove, stickyElement]);
+  }, [
+    isHovered,
+    manageMouseMove,
+    stickyElement,
+    isMagneticHovered,
+    isMenuHovered,
+  ]);
 
   useEffect(() => {
     const handleCardHover = (e: CustomEvent) => {
@@ -121,6 +137,22 @@ export default function StickyCursor({ stickyElement }: any) {
     return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
   };
 
+  useEffect(() => {
+    const handleCardHover = (e: CustomEvent) => {
+      setIsCardHovered(e.detail.isHovered);
+      setHoverText(e.detail.text || "");
+    };
+
+    window.addEventListener("cardHover" as any, handleCardHover);
+    window.addEventListener("menuHover" as any, handleMenuHover);
+    window.addEventListener("magneticHover" as any, handleMagneticHover);
+
+    return () => {
+      window.removeEventListener("cardHover" as any, handleCardHover);
+      window.removeEventListener("menuHover" as any, handleMenuHover);
+      window.removeEventListener("magneticHover" as any, handleMagneticHover);
+    };
+  }, []);
   return (
     <motion.div
       transformTemplate={template}
@@ -129,7 +161,7 @@ export default function StickyCursor({ stickyElement }: any) {
         top: smoothMouse.y,
         scaleX: scale.x,
         scaleY: scale.y,
-        opacity: isLogoHovered ? 0 : 1,
+        opacity: isLogoHovered || isMenuHovered ? 0 : 1,
       }}
       animate={{
         width: cursorSize,

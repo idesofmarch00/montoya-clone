@@ -36,6 +36,16 @@ const Header = forwardRef(function Header(props, ref) {
           initial="initial"
           whileHover="hovered"
           className="h-fit relative overflow-hidden font-black cursor-pointer"
+          onMouseEnter={() =>
+            window.dispatchEvent(
+              new CustomEvent("menuHover", { detail: { isHovered: true } })
+            )
+          }
+          onMouseLeave={() =>
+            window.dispatchEvent(
+              new CustomEvent("menuHover", { detail: { isHovered: false } })
+            )
+          }
         >
           <motion.div
             variants={{
@@ -60,6 +70,20 @@ const Header = forwardRef(function Header(props, ref) {
           <div
             ref={ref as React.Ref<HTMLDivElement>}
             className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform rounded-full"
+            onMouseEnter={() =>
+              window.dispatchEvent(
+                new CustomEvent("magneticHover", {
+                  detail: { isHovered: true },
+                })
+              )
+            }
+            onMouseLeave={() =>
+              window.dispatchEvent(
+                new CustomEvent("magneticHover", {
+                  detail: { isHovered: false },
+                })
+              )
+            }
           >
             <div className="relative flex flex-col gap-2 p-7.5">
               <div className="w-7.5 h-0.5 bg-white mix-blend-difference"></div>
