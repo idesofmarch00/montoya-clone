@@ -45,7 +45,7 @@ const Studio = () => {
       className="flex flex-col items-center justify-center h-screen text-white text-center z-0 px-6 "
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ amount: "all" }}
+      viewport={{ amount: 0.5 }}
       transition={{ duration: 1 }}
     >
       <p className="text-lg max-w-2xl text-wrap opacity-40">
