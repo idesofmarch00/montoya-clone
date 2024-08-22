@@ -17,7 +17,7 @@ export default function Home() {
   const scrollBelowElement = useRef(null);
 
   return (
-    <main className="h-screen">
+    <main className="h-auto min-h-screen">
       <Header ref={hamburgerElement} />
       <Hero ref={scrollBelowElement} />
       <Projects />
