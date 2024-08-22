@@ -27,10 +27,10 @@ export default function StickyCursor({ stickyElement }: any) {
     y: useSpring(mouse.y, smoothOptions),
   };
 
-  const rotate = (distance: any) => {
-    const angle = Math.atan2(distance.y, distance.x);
-    animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
-  };
+  // const rotate = (distance: any) => {
+  //   const angle = Math.atan2(distance.y, distance.x);
+  //   animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
+  // };
 
   useEffect(() => {
     const handleCardHover = (e: CustomEvent) => {
@@ -60,7 +60,7 @@ export default function StickyCursor({ stickyElement }: any) {
 
       if (isHovered) {
         const distance = { x: clientX - center.x, y: clientY - center.y };
-        rotate(distance);
+        // rotate(distance);
 
         const absDistance = Math.max(
           Math.abs(distance.x),
