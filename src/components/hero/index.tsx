@@ -63,7 +63,10 @@ const Hero = () => {
         TECHNOLOGY.
       </p>
       <div className="absolute bottom-6 flex items-center justify-between w-full px-10 pt-8">
-        <div className="left-10 flex items-center text-sm font-medium">
+        <div
+          className="left-10 flex items-center text-sm font-medium"
+          onClick={() => window.scrollTo({ top: 1000, behavior: "smooth" })}
+        >
           <motion.div
             initial="initial"
             whileHover="hovered"
@@ -98,10 +101,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           <Magnetic>
-            <div
-              className="ml-4 w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
-              onClick={() => window.scrollTo({ top: 1000, behavior: "smooth" })}
-            >
+            <div className="ml-4 w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform">
               <i className="fa-solid fa-angle-down"></i>
             </div>
           </Magnetic>
