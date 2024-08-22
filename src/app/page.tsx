@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-auto min-h-screen">
+    <main className="h-auto min-h-screen overflow-x-clip">
       {showSplash ? (
         <SplashScreen onFinish={handleFinishLoading} />
       ) : (

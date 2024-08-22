@@ -9,15 +9,9 @@ import Magnetic from "../magnetic";
 const Footer = forwardRef(function Footer(props, ref) {
   return (
     <div className="bottom-0 left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10 px-16 pb-8">
-      <div
+      <a
         className="left-14 flex items-center text-sm font-medium"
-        onClick={() =>
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          })
-        }
+        href="#"
       >
         <Magnetic>
           <div
@@ -60,7 +54,7 @@ const Footer = forwardRef(function Footer(props, ref) {
             Back Top
           </motion.div>
         </motion.div>
-      </div>
+      </a>
 
       <div className="text-center text-sm font-semibold">
         {new Date().getFullYear()} &copy;
@@ -108,7 +102,7 @@ const Footer = forwardRef(function Footer(props, ref) {
         >
           {["In", "Fb", "Be", "Tw", "Db"].map((link, index) => (
             <Magnetic key={index}>
-              <p className="mr-4">{link}</p>
+              <a href="#" className="mr-4">{link}</a>
             </Magnetic>
           ))}
         </motion.div>

@@ -35,7 +35,7 @@ const Header = forwardRef(function Header(props, ref) {
         <motion.div
           initial="initial"
           whileHover="hovered"
-          className="h-fit relative overflow-hidden font-black cursor-pointer"
+          className="h-fit relative hidden md:block overflow-hidden font-black cursor-pointer"
           onMouseEnter={() =>
             window.dispatchEvent(
               new CustomEvent("menuHover", { detail: { isHovered: true } })
