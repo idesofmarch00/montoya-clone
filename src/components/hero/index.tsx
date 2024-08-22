@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import Magnetic from "../magnetic";
-import { useCallback, useState } from "react";
+import { useCallback, useState, forwardRef } from "react";
 
 const letters = "MONTOYA".split("");
 
-const Hero = () => {
+const Hero = forwardRef(function Hero(props, ref) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoverProgress, setHoverProgress] = useState(0.5);
 
@@ -101,8 +101,11 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           <Magnetic>
-            <div className="ml-4 w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform">
-              <i className="fa-solid fa-angle-down"></i>
+            <div
+              className="ml-2 h-14 w-14 pointer-events-auto scale: hover:scale-130 transition-transform flex"
+              ref={ref as React.Ref<HTMLDivElement>}
+            >
+              <i className="fa-solid fa-angle-down m-auto" ></i>
             </div>
           </Magnetic>
         </div>
@@ -113,6 +116,6 @@ const Hero = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Hero;

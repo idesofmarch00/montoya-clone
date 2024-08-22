@@ -3,7 +3,11 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring, animate } from "framer-motion";
 
-export default function StickyCursor({ stickyElement }: any) {
+export default function StickyCursor({
+  hamburgerMenu,
+  scrollBelowButton,
+  backTopButton,
+}: any) {
   const [isHovered, setIsHovered] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
@@ -58,6 +62,27 @@ export default function StickyCursor({ stickyElement }: any) {
     setIsMenuHovered(e.detail.isHovered);
   };
 
+  useEffect(() => {
+    hamburgerMenu.current.classList.toggle("border-orange-300", isMenuHovered);
+    hamburgerMenu.current.classList.toggle("border", isMenuHovered);
+    hamburgerMenu.current.classList.toggle("rounded-full", isMenuHovered);
+  }, [hamburgerMenu, isMenuHovered]);
+
+  useEffect(() => {
+    scrollBelowButton.current.classList.toggle(
+      "border-orange-300",
+      isScrollHovered
+    );
+    scrollBelowButton.current.classList.toggle("border", isScrollHovered);
+    scrollBelowButton.current.classList.toggle("rounded-full", isScrollHovered);
+  }, [scrollBelowButton, isScrollHovered]);
+
+  useEffect(() => {
+    backTopButton.current.classList.toggle("border-orange-300", isBackHovered);
+    backTopButton.current.classList.toggle("border", isBackHovered);
+    backTopButton.current.classList.toggle("rounded-full", isBackHovered);
+  }, [backTopButton, isBackHovered]);
+
   const handleMagneticHover = (e: CustomEvent) => {
     setIsMagneticHovered(e.detail.isHovered);
   };
@@ -74,7 +99,7 @@ export default function StickyCursor({ stickyElement }: any) {
     (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { left, top, height, width } =
-        stickyElement.current.getBoundingClientRect();
+        hamburgerMenu.current.getBoundingClientRect();
 
       const center = { x: left + width / 2, y: top + height / 2 };
 
@@ -98,7 +123,7 @@ export default function StickyCursor({ stickyElement }: any) {
         mouse.y.set(clientY - cursorSize / 2);
       }
     },
-    [isHovered, stickyElement, cursorSize, mouse.x, mouse.y, scale.x, scale.y]
+    [isHovered, hamburgerMenu, cursorSize, mouse.x, mouse.y, scale.x, scale.y]
   );
 
   const manageMouseOver = () => {
@@ -115,18 +140,18 @@ export default function StickyCursor({ stickyElement }: any) {
   };
 
   useEffect(() => {
-    stickyElement.current.addEventListener("mouseenter", manageMouseOver);
-    stickyElement.current.addEventListener("mouseleave", manageMouseLeave);
+    hamburgerMenu.current.addEventListener("mouseenter", manageMouseOver);
+    hamburgerMenu.current.addEventListener("mouseleave", manageMouseLeave);
     window.addEventListener("mousemove", manageMouseMove);
     return () => {
-      stickyElement.current.removeEventListener("mouseenter", manageMouseOver);
-      stickyElement.current.removeEventListener("mouseleave", manageMouseLeave);
+      hamburgerMenu.current.removeEventListener("mouseenter", manageMouseOver);
+      hamburgerMenu.current.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
     };
   }, [
     isHovered,
     manageMouseMove,
-    stickyElement,
+    hamburgerMenu,
     isMagneticHovered,
     isMenuHovered,
   ]);

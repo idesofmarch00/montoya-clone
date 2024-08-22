@@ -12,19 +12,25 @@ import Studio from "@/components/studio";
 import Info from "@/components/info";
 
 export default function Home() {
-  const stickyElement = useRef(null);
+  const hamburgerElement = useRef(null);
+  const backTopElement = useRef(null);
+  const scrollBelowElement = useRef(null);
 
   return (
     <main className="h-screen">
-      <Header ref={stickyElement} />
-      <Hero />
+      <Header ref={hamburgerElement} />
+      <Hero ref={scrollBelowElement} />
       <Projects />
       <Middle />
       <Skills />
       <Info />
       <Studio />
-      <Footer />
-      <StickyCursor stickyElement={stickyElement} />
+      <Footer ref={backTopElement} />
+      <StickyCursor
+        hamburgerMenu={hamburgerElement}
+        backTopButton={backTopElement}
+        scrollBelowButton={scrollBelowElement}
+      />
     </main>
   );
 }

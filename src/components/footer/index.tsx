@@ -22,9 +22,9 @@ const Footer = forwardRef(function Footer(props, ref) {
         <Magnetic>
           <div
             ref={ref as React.Ref<HTMLDivElement>}
-            className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
+            className="h-14 w-14 flex pointer-events-auto scale: hover:scale-130 transition-transform"
           >
-            <i className="fa-solid fa-angle-up"></i>
+            <i className="fa-solid fa-angle-up m-auto"></i>
           </div>
         </Magnetic>
         <motion.div
@@ -40,7 +40,7 @@ const Footer = forwardRef(function Footer(props, ref) {
               new CustomEvent("backHover", { detail: { isHovered: false } })
             )
           }
-          className="h-fit relative overflow-hidden font-black cursor-pointer ml-8"
+          className="h-fit relative overflow-hidden font-black cursor-pointer ml-2"
         >
           <motion.div
             variants={{

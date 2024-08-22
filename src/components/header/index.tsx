@@ -31,7 +31,7 @@ const Header = forwardRef(function Header(props, ref) {
         <Image src={Logo} alt="Logo" width={60} height={60} />
       </motion.div>
 
-      <div className="right-10 top-6 absolute flex items-center gap-4 text-sm font-thin">
+      <div className="right-10 top-6 absolute flex items-center space-x-2 text-sm font-thin">
         <motion.div
           initial="initial"
           whileHover="hovered"
@@ -69,7 +69,7 @@ const Header = forwardRef(function Header(props, ref) {
         <Magnetic>
           <div
             ref={ref as React.Ref<HTMLDivElement>}
-            className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform rounded-full"
+            className="h-14 w-14 pointer-events-auto scale: hover:scale-130 transition-transform rounded-full flex"
             onMouseEnter={() =>
               window.dispatchEvent(
                 new CustomEvent("magneticHover", {
@@ -85,9 +85,9 @@ const Header = forwardRef(function Header(props, ref) {
               )
             }
           >
-            <div className="relative flex flex-col gap-2 p-7.5">
-              <div className="w-7.5 h-0.5 bg-white mix-blend-difference"></div>
-              <div className="w-7.5 h-0.5 bg-white mix-blend-difference"></div>
+            <div className="m-auto flex flex-col space-y-1.5 p-2 rounded-full">
+              <div className="w-4 h-0.5 bg-white mix-blend-difference"></div>
+              <div className="w-4 h-0.5 bg-white mix-blend-difference"></div>
             </div>
           </div>
         </Magnetic>
