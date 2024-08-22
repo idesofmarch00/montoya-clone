@@ -20,7 +20,7 @@ const Word = ({ children }: { children: React.ReactNode }) => {
     <motion.li
       ref={element}
       style={{ opacity, color }}
-      className="font-medium text-9xl"
+      className="font-medium text-6xl md:text-9xl"
     >
       {children}
     </motion.li>
@@ -61,12 +61,14 @@ const Skills = () => {
   }, [scrollYProgress]);
 
   return (
-    <div ref={container} className="relative h-[800vh] text-center">
+    <div ref={container} className="relative md:h-[800vh] text-center">
       <motion.div
         className="sticky top-0 h-screen overflow-hidden"
         style={{ opacity: headingOpacity }}
       >
-        <p className="text-sm font-medium py-4">OUR SKILLS COVER</p>
+        <p className="hidden md:flex text-sm font-medium py-4">
+          OUR SKILLS COVER
+        </p>
         <motion.ul
           ref={listContainer}
           className="mt-10 space-y-2"
