@@ -57,10 +57,10 @@ const Card = ({
           scale,
           top: 0,
         }}
-        className="flex flex-col relative -top-1/4 h-[750px] w-[1450px] rounded-[25px] p-[50px] transform-origin-top"
+        className="flex flex-col relative -top-1/4 w-[330px] h-[560px]  sm:w-[700px] sm:h-[630px] rounded-[10px] md:w-[980px] md:rounded-[15px] lg:h-[750px] lg:w-[1450px] lg:rounded-[25px] lg:p-[50px] transform-origin-top"
       >
         <div className="flex h-full gap-[50px]">
-          <div className="relative w-[1450px] h-[660px] rounded-[25px] overflow-hidden">
+          <div className="relative w-[330px] h-[560px]  sm:w-[720px] rounded-[10px] md:w-[980px] sm:h-[630px] md:rounded-[15px] lg:w-[1450px] lg:h-[660px]  lg:rounded-[25px] overflow-hidden">
             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
               <Image
                 fill
@@ -69,15 +69,18 @@ const Card = ({
                 className="object-cover"
               />
             </motion.div>
-            <div className="absolute bottom-0 w-full px-20 pb-14 text-white flex items-end justify-between">
+            <div className="absolute top-6 sm:top-8 md:bottom-0 w-full px-4 md:px-16 lg:px-20 md:pb-16 lg:pb-14 text-white flex items-end justify-between">
               <button className="text-sm bg-white bg-opacity-20 rounded-full px-4 py-1 text-white">
                 {year}
               </button>
-              <h1 className="text-9xl">{title}</h1>
+              <h1 className="hidden md:flex text-6xl sm:text-7xl  md:text-8xl lg:text-9xl">
+                {title}
+              </h1>
               <span className="text-sm bg-white bg-opacity-20 rounded-full px-4 py-1 text-white">
                 {type}
               </span>
             </div>
+            <h1 className="relative bottom-20 sm:bottom-28 text-center md:hidden text-6xl sm:text-7xl">{title}</h1>
           </div>
         </div>
       </motion.div>
