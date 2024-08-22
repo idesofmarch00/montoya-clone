@@ -8,7 +8,7 @@ const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoverProgress, setHoverProgress] = useState(0.5);
 
-  const handleMouseEnter = useCallback((index) => {
+  const handleMouseEnter = useCallback((index: any) => {
     setHoveredIndex(index);
   }, []);
 
@@ -17,7 +17,7 @@ const Hero = () => {
     setHoverProgress(0);
   }, []);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const progress = Math.sin((x / rect.width) * Math.PI);
@@ -67,6 +67,16 @@ const Hero = () => {
           <motion.div
             initial="initial"
             whileHover="hovered"
+            onMouseEnter={() =>
+              window.dispatchEvent(
+                new CustomEvent("scrollHover", { detail: { isHovered: true } })
+              )
+            }
+            onMouseLeave={() =>
+              window.dispatchEvent(
+                new CustomEvent("scrollHover", { detail: { isHovered: false } })
+              )
+            }
             className="h-fit relative overflow-hidden cursor-pointer"
           >
             <motion.div

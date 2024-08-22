@@ -28,6 +28,16 @@ const Footer = forwardRef(function Footer(props, ref) {
         <motion.div
           initial="initial"
           whileHover="hovered"
+          onMouseEnter={() =>
+            window.dispatchEvent(
+              new CustomEvent("backHover", { detail: { isHovered: true } })
+            )
+          }
+          onMouseLeave={() =>
+            window.dispatchEvent(
+              new CustomEvent("backHover", { detail: { isHovered: false } })
+            )
+          }
           className="h-fit relative overflow-hidden font-black cursor-pointer ml-8"
         >
           <motion.div

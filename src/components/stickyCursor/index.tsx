@@ -9,6 +9,8 @@ export default function StickyCursor({ stickyElement }: any) {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isMagneticHovered, setIsMagneticHovered] = useState(false);
   const [isMenuHovered, setIsMenuHovered] = useState(false);
+  const [isScrollHovered, setIsScrollHovered] = useState(false);
+  const [isBackHovered, setIsBackHovered] = useState(false);
   const [hoverText, setHoverText] = useState("");
   const cursor = useRef(null);
   const cursorSize = isCardHovered ? 100 : isHovered ? 60 : 40;
@@ -58,6 +60,14 @@ export default function StickyCursor({ stickyElement }: any) {
 
   const handleMagneticHover = (e: CustomEvent) => {
     setIsMagneticHovered(e.detail.isHovered);
+  };
+
+  const handleScrollHover = (e: CustomEvent) => {
+    setIsScrollHovered(e.detail.isHovered);
+  };
+
+  const handleBackHover = (e: CustomEvent) => {
+    setIsBackHovered(e.detail.isHovered);
   };
 
   const manageMouseMove = useCallback(
@@ -145,6 +155,8 @@ export default function StickyCursor({ stickyElement }: any) {
 
     window.addEventListener("cardHover" as any, handleCardHover);
     window.addEventListener("menuHover" as any, handleMenuHover);
+    window.addEventListener("scrollHover" as any, handleScrollHover);
+    window.addEventListener("backHover" as any, handleBackHover);
     window.addEventListener("magneticHover" as any, handleMagneticHover);
 
     return () => {
@@ -161,7 +173,10 @@ export default function StickyCursor({ stickyElement }: any) {
         top: smoothMouse.y,
         scaleX: scale.x,
         scaleY: scale.y,
-        opacity: isLogoHovered || isMenuHovered ? 0 : 1,
+        opacity:
+          isLogoHovered || isMenuHovered || isScrollHovered || isBackHovered
+            ? 0
+            : 1,
       }}
       animate={{
         width: cursorSize,
