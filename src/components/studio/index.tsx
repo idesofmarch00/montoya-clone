@@ -41,12 +41,12 @@ const Studio = () => {
   );
 
   return (
-    <div className="flex pt-20 flex-col items-center justify-center h-screen text-white text-center z-0">
-      <p className="text-lg max-w-2xl text-wrap text-gray-400">
+    <div className="flex pt-20 flex-col items-center justify-center h-screen text-white text-center z-0 px-6">
+      <p className="text-lg max-w-2xl text-wrap opacity-40">
         EXPLORING OUR WORLD OF VISUAL AND INTERACTIVE DESIGN
       </p>
-      <div className="flex items-center space-x-4">
-        <motion.h1 className="text-[18.5rem] font-medium flex">
+      <div className="flex items-center space-x-4 mt-4 md:mt-0">
+        <motion.h1 className="text-8xl sm:text-9xl md:text-[12rem] lg:text-[18.5rem] font-medium flex">
           {wordOne.map((letter, index) => (
             <motion.span
               key={index}
@@ -82,7 +82,7 @@ const Studio = () => {
           ))}
         </motion.h1>
         <div className="mx-10"></div>
-        <motion.h1 className="text-[18.5rem] font-medium flex">
+        <motion.h1 className="text-8xl sm:text-9xl md:text-[12rem] lg:text-[18.5rem] font-medium flex">
           {wordTwo.map((letter, index) => (
             <motion.span
               key={index}

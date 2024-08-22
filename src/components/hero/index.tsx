@@ -42,7 +42,7 @@ const Hero = forwardRef(function Hero(props, ref) {
       variants={springAnimation}
       className="flex flex-col items-center justify-center h-screen text-white text-center z-0"
     >
-      <motion.h1 className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[19rem] font-medium -mt-10">
+      <motion.h1 className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[18.5rem] font-medium -mt-10">
         {letters.map((letter, index) => (
           <>
             <motion.span
@@ -73,7 +73,7 @@ const Hero = forwardRef(function Hero(props, ref) {
           </>
         ))}
       </motion.h1>
-      <p className="flex flex-wrap md:text-lg max-w-2xl text-wrap text-white opacity-40 px-6">
+      <p className="mt-4 md:text-lg max-w-[42.5rem] text-wrap text-white opacity-40 px-6">
         WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING DESIGN, AND
         DEVELOPMENT. OUR WORK IS ALWAYS AT THE INTERSECTION OF DESIGN AND
         TECHNOLOGY.
