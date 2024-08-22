@@ -8,17 +8,14 @@ import Magnetic from "../magnetic";
 // Footer component definition
 const Footer = forwardRef(function Footer(props, ref) {
   return (
-    <div className="bottom-0 left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10 px-16 pb-8">
-      <a
-        className="left-14 flex items-center text-sm font-medium"
-        href="#"
-      >
+    <div className="bottom-0 left-0 right-0 flex items-center md:justify-between w-full box-border cursor-pointer mix-blend-difference z-10 px-2 sm:px-6 md:pb-6">
+      <a className="lg:left-14 flex items-center text-sm font-medium" href="#">
         <Magnetic>
           <div
             ref={ref as React.Ref<HTMLDivElement>}
             className="h-14 w-14 flex pointer-events-auto scale: hover:scale-130 transition-transform"
           >
-            <i className="fa-solid fa-angle-up m-auto"></i>
+            <i className="ml-6 sm:ml-0 fa-solid fa-angle-up mx-auto mt-7 sm:m-auto text-lg opacity-40 md:opacity-100"></i>
           </div>
         </Magnetic>
         <motion.div
@@ -34,7 +31,7 @@ const Footer = forwardRef(function Footer(props, ref) {
               new CustomEvent("backHover", { detail: { isHovered: false } })
             )
           }
-          className="h-fit relative overflow-hidden font-black cursor-pointer ml-2"
+          className="h-fit relative overflow-hidden font-black cursor-pointer ml-2 hidden md:flex"
         >
           <motion.div
             variants={{
@@ -56,32 +53,42 @@ const Footer = forwardRef(function Footer(props, ref) {
         </motion.div>
       </a>
 
-      <div className="text-center text-sm font-semibold">
-        {new Date().getFullYear()} &copy;
-        <motion.span
-          initial="initial"
-          whileHover="hovered"
-          variants={{
-            initial: { textDecoration: "none" },
-            hovered: { textDecoration: "underline" },
-          }}
-        >
-          ClaPat
-        </motion.span>
-        . All rights reserved.
+      <div className="w-[85%] mr-12 sm:mr-0 mb-6 sm:mb-10 md:mb-0 md:w-2/3 lg:w-fit flex flex-col space-y-4 md:space-y-0 md:flex-row items-center justify-between">
+        <div className="text-center text-sm font-medium">
+          {new Date().getFullYear()} &copy;
+          <motion.span
+            initial="initial"
+            whileHover="hovered"
+            variants={{
+              initial: { textDecoration: "none" },
+              hovered: { textDecoration: "underline" },
+            }}
+          >
+            ClaPat
+          </motion.span>
+          . All rights reserved.
+        </div>
+
+        <div className="flex text-sm lg:hidden font-medium">
+          {["Db", "Tw", "Be", "Fb", "In"].map((link, index) => (
+            <a href="#" className="mr-3 md:mr-5" key={link}>
+              {link}
+            </a>
+          ))}
+        </div>
       </div>
 
       <motion.div
         initial="initial"
         whileHover="hovered"
-        className="flex flex-col items-center text-sm font-semibold"
+        className="hidden lg:flex lg:flex-col items-center text-sm font-semibold"
       >
         <motion.div
           variants={{
             initial: { translateY: 0 },
             hovered: { translateX: 50, translateY: -30 },
           }}
-          className="flex items-center justify-end"
+          className="items-center justify-end"
         >
           <span className="mr-6">Follow Us</span>
           <motion.i
@@ -100,9 +107,11 @@ const Footer = forwardRef(function Footer(props, ref) {
           }}
           className="flex mt-2"
         >
-          {["In", "Fb", "Be", "Tw", "Db"].map((link, index) => (
-            <Magnetic key={index}>
-              <a href="#" className="mr-4">{link}</a>
+          {["Db", "Tw", "Be", "Fb", "In"].map((link, index) => (
+            <Magnetic key={link}>
+              <a href="#" className="mr-4">
+                {link}
+              </a>
             </Magnetic>
           ))}
         </motion.div>

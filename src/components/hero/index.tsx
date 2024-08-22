@@ -24,8 +24,24 @@ const Hero = forwardRef(function Hero(props, ref) {
     setHoverProgress(progress);
   }, []);
 
+  const springAnimation = {
+    initial: { scale: 0.5, opacity: 0.5 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "tween",
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white text-center z-0">
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={springAnimation}
+      className="flex flex-col items-center justify-center h-screen text-white text-center z-0"
+    >
       <motion.h1 className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[19rem] font-medium -mt-10">
         {letters.map((letter, index) => (
           <>
@@ -114,7 +130,7 @@ const Hero = forwardRef(function Hero(props, ref) {
           <span className="md:mr-6">Featured Projects</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 });
 
