@@ -15,7 +15,7 @@ const Footer = forwardRef(function Footer(props, ref) {
             ref={ref as React.Ref<HTMLDivElement>}
             className="h-14 w-14 flex pointer-events-auto scale: hover:scale-130 transition-transform"
           >
-            <i className="ml-6 sm:ml-0 fa-solid fa-angle-up mx-auto mt-7 sm:m-auto text-lg opacity-40 md:opacity-100"></i>
+            <i className="ml-6 sm:ml-0 fa-solid fa-angle-up md:mx-auto mt-7 sm:m-auto text-lg opacity-40 md:opacity-100"></i>
           </div>
         </Magnetic>
         <motion.div
