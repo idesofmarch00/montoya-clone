@@ -42,7 +42,7 @@ const Studio = () => {
 
   return (
     <motion.div
-      className="flex pt-20 flex-col items-center justify-center h-screen text-white text-center z-0 px-6 "
+      className="flex flex-col items-center justify-center h-screen text-white text-center z-0 px-6 "
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ amount: "all" }}

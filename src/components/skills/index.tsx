@@ -62,13 +62,13 @@ const Skills = () => {
 
   return (
     <div ref={container} className="relative md:h-[800vh] text-center">
-      <motion.div
-        className="sticky top-0 h-screen overflow-hidden"
-        style={{ opacity: headingOpacity }}
-      >
-        <p className="hidden sm:block sm:text-center text-sm font-medium py-4">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <motion.p
+          style={{ opacity: headingOpacity }}
+          className="hidden sm:block sm:text-center text-sm font-medium py-4"
+        >
           OUR SKILLS COVER
-        </p>
+        </motion.p>
         <motion.ul
           ref={listContainer}
           className="mt-28 sm:mt-36 md:mt-10 space-y-2"
@@ -86,7 +86,7 @@ const Skills = () => {
             <Word key={index}>{skill}</Word>
           ))}
         </motion.ul>
-      </motion.div>
+      </div>
     </div>
   );
 };
