@@ -26,7 +26,7 @@ const Hero = forwardRef(function Hero(props, ref) {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white text-center z-0">
-      <motion.h1 className="flex text-[19rem] font-medium -mt-10">
+      <motion.h1 className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[19rem] font-medium -mt-10">
         {letters.map((letter, index) => (
           <>
             <motion.span
@@ -57,12 +57,12 @@ const Hero = forwardRef(function Hero(props, ref) {
           </>
         ))}
       </motion.h1>
-      <p className=" text-lg max-w-2xl text-wrap text-white opacity-40">
+      <p className="flex flex-wrap md:text-lg max-w-2xl text-wrap text-white opacity-40 px-6">
         WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING DESIGN, AND
         DEVELOPMENT. OUR WORK IS ALWAYS AT THE INTERSECTION OF DESIGN AND
         TECHNOLOGY.
       </p>
-      <div className="absolute bottom-6 flex items-center justify-between w-full px-10 pt-8">
+      <div className="absolute bottom-2 md:bottom-6 flex items-center justify-between w-full px-6 md:px-10 pt-8">
         <div
           className="left-10 flex items-center text-sm font-medium"
           onClick={() => window.scrollTo({ top: 1000, behavior: "smooth" })}
@@ -80,7 +80,7 @@ const Hero = forwardRef(function Hero(props, ref) {
                 new CustomEvent("scrollHover", { detail: { isHovered: false } })
               )
             }
-            className="h-fit relative overflow-hidden cursor-pointer"
+            className="h-fit relative overflow-hidden cursor-pointer hidden md:block"
           >
             <motion.div
               variants={{
@@ -102,16 +102,16 @@ const Hero = forwardRef(function Hero(props, ref) {
           </motion.div>
           <Magnetic>
             <div
-              className="ml-2 h-14 w-14 pointer-events-auto scale: hover:scale-130 transition-transform flex"
+              className="-ml-6 md:ml-2 h-14 w-14 pointer-events-auto scale: hover:scale-130 transition-transform flex"
               ref={ref as React.Ref<HTMLDivElement>}
             >
-              <i className="fa-solid fa-angle-down m-auto" ></i>
+              <i className="fa-solid fa-angle-down m-auto text-lg"></i>
             </div>
           </Magnetic>
         </div>
 
         <div className="text-white text-sm flex font-medium items-center justify-end">
-          <span className="mr-6">Featured Projects</span>
+          <span className="md:mr-6">Featured Projects</span>
         </div>
       </div>
     </div>

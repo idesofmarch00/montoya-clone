@@ -207,7 +207,7 @@ export default function StickyCursor({
         width: cursorSize,
         height: cursorSize,
       }}
-      className={`fixed rounded-full pointer-events-none flex items-center justify-center cursor-pointer ${
+      className={`hidden fixed rounded-full pointer-events-none md:flex items-center justify-center cursor-pointer ${
         isCardHovered
           ? "bg-white text-white font-medium"
           : isHovered

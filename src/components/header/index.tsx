@@ -24,14 +24,14 @@ const Header = forwardRef(function Header(props, ref) {
   return (
     <div className="fixed left-0 right-0 flex items-center justify-between w-full box-border cursor-pointer mix-blend-difference z-10">
       <motion.div
-        className="left-10 top-6 absolute"
+        className="left-4 top-2 md:left-10 md:top-6 absolute"
         onMouseEnter={handleLogoMouseEnter}
         onMouseLeave={handleLogoMouseLeave}
       >
         <Image src={Logo} alt="Logo" width={60} height={60} />
       </motion.div>
 
-      <div className="right-10 top-6 absolute flex items-center space-x-2 text-sm font-thin">
+      <div className="right-2 top-2 md:right-10 md:top-6 absolute flex items-center space-x-2 text-sm font-thin">
         <motion.div
           initial="initial"
           whileHover="hovered"
