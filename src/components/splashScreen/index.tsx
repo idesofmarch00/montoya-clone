@@ -12,8 +12,8 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
       setTimeout(() => {
         setIsLoading(false);
         onFinish();
-      }, 500); // Wait for the expansion animation to complete
-    }, 800); // Duration for the loading bar to fill
+      }, 400); // Wait for the expansion animation to complete
+    }, 300); // Duration for the loading bar to fill
 
     return () => clearTimeout(timer);
   }, [onFinish]);
@@ -43,8 +43,8 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
             }
             transition={
               isBarFilled
-                ? { duration: 0.5, ease: "easeInOut" }
-                : { duration: 0.8, ease: "easeInOut" }
+                ? { duration: 0.3, ease: "easeInOut" }
+                : { duration: 0.4, ease: "easeInOut" }
             }
           />
           <p className="text-white opacity-40 font-bold absolute bottom-24">
