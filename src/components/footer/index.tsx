@@ -105,6 +105,16 @@ const Footer = forwardRef(function Footer(props, ref) {
             initial: { opacity: 0, height: 0 },
             hovered: { opacity: 1, height: "auto", translateY: -20 },
           }}
+          onMouseEnter={() =>
+            window.dispatchEvent(
+              new CustomEvent("linkHover", { detail: { isHovered: true } })
+            )
+          }
+          onMouseLeave={() =>
+            window.dispatchEvent(
+              new CustomEvent("linkHover", { detail: { isHovered: false } })
+            )
+          }
           className="flex mt-2"
         >
           {["Db", "Tw", "Be", "Fb", "In"].map((link, index) => (
