@@ -43,6 +43,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sixCaps.variable} ${poppins.variable}`}>
+      <head>
+        <link
+          rel="icon"
+          href="http://clapat-themes.com/wordpress/montoya/wp-content/uploads/2024/04/cropped-favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          href="http://clapat-themes.com/wordpress/montoya/wp-content/uploads/2024/04/cropped-favicon-192x192.png"
+          sizes="192x192"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="http://clapat-themes.com/wordpress/montoya/wp-content/uploads/2024/04/cropped-favicon-180x180.png"
+        />
+        <meta
+          name="msapplication-TileImage"
+          content="http://clapat-themes.com/wordpress/montoya/wp-content/uploads/2024/04/cropped-favicon-270x270.png"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
