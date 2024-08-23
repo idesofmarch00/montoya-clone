@@ -24,53 +24,59 @@ const Hero = forwardRef(function Hero(props, ref) {
     setHoverProgress(progress);
   }, []);
 
-  const springAnimation = {
-    initial: { scale: 0.5, opacity: 0.5 },
+  const letterAnimation = {
+    initial: {
+      scaleY: 0,
+      opacity: 0,
+      transformOrigin: "bottom",
+    },
     animate: {
-      scale: 1,
+      scaleY: 1,
       opacity: 1,
       transition: {
-        type: "tween",
+        duration: 0.8,
+        ease: [0.25, 1, 0.5, 1], // Custom easing function for a more natural growth
+        staggerChildren: 0.1, // Stagger the animation of each letter
       },
     },
   };
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      variants={springAnimation}
-      className="flex flex-col items-center justify-center h-screen text-white text-center z-0"
-    >
-      <motion.h1 className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[18.5rem] font-medium -mt-10">
+    <motion.div className="flex flex-col items-center justify-center h-screen text-white text-center z-0">
+      <motion.h1
+        className="flex text-8xl sm:text-9xl md:text-[12rem] lg:text-[18.5rem] font-medium -mt-10"
+        variants={letterAnimation}
+        initial="initial"
+        animate="animate"
+      >
         {letters.map((letter, index) => (
-          <>
-            <motion.span
-              className="inline-block relative"
-              initial={{ scaleY: 1 }}
-              animate={{
-                scaleY: hoveredIndex === index ? 1 + 0.3 * hoverProgress : 1,
-                y: hoveredIndex === index ? 6 * hoverProgress : 0,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 10,
-                mass: 0.5,
-              }}
-              style={{
-                transformOrigin: "bottom center",
-                display: "inline-block",
-                overflow: "hidden",
-                lineHeight: 1,
-              }}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-              onMouseMove={handleMouseMove}
-            >
-              <span className="text-white">{letter}</span>
-            </motion.span>
-          </>
+          <motion.span
+            key={index}
+            className="inline-block relative"
+            variants={letterAnimation}
+            initial={{ scaleY: 1 }}
+            animate={{
+              scaleY: hoveredIndex === index ? 1 + 0.3 * hoverProgress : 1,
+              y: hoveredIndex === index ? 6 * hoverProgress : 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 10,
+              mass: 0.5,
+            }}
+            style={{
+              transformOrigin: "bottom center",
+              display: "inline-block",
+              overflow: "hidden",
+              lineHeight: 1,
+            }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
+          >
+            <span className="text-white">{letter}</span>
+          </motion.span>
         ))}
       </motion.h1>
       <p className="mt-4 md:text-lg max-w-[42.5rem] text-wrap text-white opacity-40 px-6">

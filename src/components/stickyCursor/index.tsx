@@ -63,23 +63,24 @@ export default function StickyCursor({
   };
 
   useEffect(() => {
-    hamburgerMenu.current.classList.toggle("border-orange-300", isMenuHovered);
     hamburgerMenu.current.classList.toggle("border", isMenuHovered);
+    hamburgerMenu.current.classList.toggle("border-orange-300", isMenuHovered);
     hamburgerMenu.current.classList.toggle("rounded-full", isMenuHovered);
   }, [hamburgerMenu, isMenuHovered]);
 
   useEffect(() => {
+    scrollBelowButton.current.classList.toggle("border-4", isScrollHovered);
     scrollBelowButton.current.classList.toggle(
-      "border-orange-300",
+      "border-white",
       isScrollHovered
     );
-    scrollBelowButton.current.classList.toggle("border", isScrollHovered);
+    scrollBelowButton.current.classList.toggle("border-opacity-40", isScrollHovered);
     scrollBelowButton.current.classList.toggle("rounded-full", isScrollHovered);
   }, [scrollBelowButton, isScrollHovered]);
 
   useEffect(() => {
-    backTopButton.current.classList.toggle("border-orange-300", isBackHovered);
     backTopButton.current.classList.toggle("border", isBackHovered);
+    backTopButton.current.classList.toggle("border-orange-300", isBackHovered);
     backTopButton.current.classList.toggle("rounded-full", isBackHovered);
   }, [backTopButton, isBackHovered]);
 
